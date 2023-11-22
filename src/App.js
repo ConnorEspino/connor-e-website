@@ -24,7 +24,6 @@ function App() {
                     </div>
                     <img src={SelfPortrait} alt='Connor Espino Portrait' className='AboutMePicture'></img>
                 </div>
-
                 <SectionBorder/>
             </div>
         </div>

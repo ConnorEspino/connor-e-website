@@ -1,17 +1,43 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
 import reportWebVitals from './Testing/reportWebVitals';
-// import {
-//   createBrowserRouter,
-//   RouterProvider,
-// } from "react-router-dom";
+import {
+    createBrowserRouter,
+    RouterProvider,
+} from "react-router-dom";
+const App = React.lazy(() => import('./App'));
+const EDP = React.lazy(() => import('./Pages/EDP'));
+const WYHAM = React.lazy(() => import('./Pages/WYHAM'));
+const OSED = React.lazy(() => import('./Pages/OSED'));
+
+const router = createBrowserRouter([
+    {
+      
+      path: "/",
+      element: <App/>,
+     
+    },
+    {
+       path: "/EDP",
+      element: <EDP/>,
+    },
+    {
+       path: "/WYHAM",
+      element: <WYHAM/>,
+    },
+    {
+       path: "/OSED",
+      element: <OSED/>,
+    }
+  ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <React.StrictMode>
-        <App />
+        <Suspense fallback={<div>Loading...</div>}>
+        <RouterProvider router={router} />
+        </Suspense>
     </React.StrictMode>
 );
 
