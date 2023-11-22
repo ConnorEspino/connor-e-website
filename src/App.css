@@ -1,7 +1,6 @@
 .App {
   background: rgb(214,237,220);
   background: linear-gradient(180deg, rgba(214,237,220,1) 0%, rgba(147,221,167,1) 30%, rgba(22,107,45,1) 100%);
-  text-align: center;
 }
 
 .AppBodyContainer {

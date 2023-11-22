@@ -1,8 +1,16 @@
 import './EDP.css'
 
+import NavBar from '../Components/NavBar'
+import Footer from '../Components/Footer'
+
+// TODO: Implement LazyFrame for page load
+// https://github.com/vb/lazyframe
+// import LazyFrame from 'lazyframe';
+
 function EDP() {
     return (
         <div>
+            <NavBar secondaryText='> EDP'/>
             <iframe title='Next - A No Mans Sky Cinematic' width='420' height='315'
                 src="https://www.youtube.com/embed/Dh4XVB24Dt8">
             </iframe>
@@ -15,6 +23,7 @@ function EDP() {
             <iframe title='Origins - A No Mans Sky Cinematic' width='420' height='315'
                 src="https://www.youtube.com/embed/cAahiZQCTBY">
             </iframe>
+            <Footer/>
         </div>
     );
 }

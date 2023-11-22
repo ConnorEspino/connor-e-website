@@ -1,9 +1,13 @@
 import './NavBar.css';
+import { Link } from 'react-router-dom';
 
-function NavBar() {
+function NavBar({secondaryText}) {
     return (
         <div className='NavBarContainer'>
-            Hello There, from the header!
+            <Link className='HomeButton' to='/'>CE</Link>
+            {secondaryText && (
+                <div className='HomeButtonSecondary'>{secondaryText}</div>
+            )}
         </div>
     )
 }
