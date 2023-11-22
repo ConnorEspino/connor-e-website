@@ -1,0 +1,5 @@
+.FooterContainer {
+    background: rgb(0,40,98);
+    background: linear-gradient(90deg, rgba(0,40,98,1) 6%, rgba(27,107,223,1) 75%, rgba(144,212,255,1) 100%);
+    height: 50px;
+}

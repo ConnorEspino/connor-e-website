@@ -1,16 +1,49 @@
 .App {
+  background: rgb(214,237,220);
+  background: linear-gradient(180deg, rgba(214,237,220,1) 0%, rgba(147,221,167,1) 30%, rgba(22,107,45,1) 100%);
   text-align: center;
 }
 
+.AppBodyContainer {
+  display: flex;
+  justify-content: center;
+}
+
 .AppBody {
-  background: rgb(0,40,98);
-  background: linear-gradient(90deg, rgba(0,40,98,1) 6%, rgba(27,107,223,1) 75%, rgba(144,212,255,1) 100%);
+  background: rgb(214,237,220);
+  background: linear-gradient(0deg, rgba(214,237,220,1) 0%, rgba(147,221,167,1) 30%, rgba(22,107,45,1) 100%);
+  width: 70%;
+}
+
+.AboutMe {
+  display: flex;
+  margin: 3vw 0vw;
+  margin-left: 20vw;
+  margin-right: 2vw;
+}
+
+.AboutMeText {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  text-align: right;
   color: white;
+  width: 50%;
+  margin-top: 2vw;
+}
+
+.AboutMeTitle {
+  font-size: 2vw;
+}
+
+.AboutMeDescription {
+  font-size: 1vw;
+}
+
+.AboutMePicture {
+  width: 30vw;
+  height: 30vw;
+  object-fit: cover;
+  margin-left: 1vw;
 }
 
 .AppLink {

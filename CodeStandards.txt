@@ -1,0 +1,9 @@
+Indenting:
+    4 spaces
+
+CSS Class Names:
+    CapitalizeEveryWord
+
+Quotations:
+    'Single Quotes unless escaped with \"'
+
