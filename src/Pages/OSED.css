@@ -1,0 +1,36 @@
+.OSED {
+    width: 100%;
+    background: linear-gradient(215deg, rgba(235,147,75,1) 0%, rgba(255,225,105,1) 29%, rgba(255,255,228,1) 100%);
+}
+
+.OSEDContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 60px;
+}
+
+.OSEDTitle {
+    text-align: center;
+    font-size: 5vw;
+    color: white;
+}
+
+.TimelineContainer {
+    display: flex;
+    flex-direction: row;
+    width: 75%;
+}
+.Timeline {
+    width: 15%;
+}
+
+.Frames {
+    margin-top: 5vw;
+    width: 100%;
+}
+
+.VideoFrame {
+    height: 50vw;
+    width: 100%;
+}
