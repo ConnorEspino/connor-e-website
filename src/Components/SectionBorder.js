@@ -3,30 +3,30 @@ import './SectionBorder.css';
 import LongBorderImg from '../Media/SectionBorder.png'
 import ShortBorderImg from '../Media/SectionBorder_Square.png'
 
-const styles = {
-    long: { width: '20vw', height: '1vw' },
-    short: { width: '1vw', height: '1vw' },
+const containerStyles = {
+    normal: 'SectionBorderNormal',
+    large: 'SectionBorderLarge'
 }
 
-function getStyle(arg) {
-    switch(arg) {
-        case 'long':
-            return LongBorderImg;
-        case 'short':
-            return ShortBorderImg;
-        default:
-            return LongBorderImg;
-    }
+const imageStyles = {
+    long: 'SectionBorderImage',
+    short: 'SectionBorderImageSquare'
+}
+
+const imageSources = {
+    long: LongBorderImg,
+    short: ShortBorderImg
 }
 
 const SectionBorder = (props) => {
-    const arg = props.borderImage;
-    const imageSource = getStyle(arg);
-    const style = styles[arg] || styles['long'];
+    const borderImage = props.borderImage;
+    const imageSource = imageSources[borderImage] || imageSources['long'];
+    const imageStyle = imageStyles[borderImage] || imageStyles['long'];
+    const containerStyle = containerStyles[props.borderMargin] || containerStyles['long'];
 
     return (
-        <div className='SectionBorder'>
-            <img src={imageSource} alt='Section Border' className='SectionBorderImage' draggable='false' style={style}></img>
+        <div className={containerStyle}>
+            <img src={imageSource} alt='Section Border' className={imageStyle} draggable='false'></img>
         </div>
     )
 }

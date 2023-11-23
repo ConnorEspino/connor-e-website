@@ -31,11 +31,10 @@ function App() {
             let yEnd = yStart - 25;
             image.animate({ 
                 transform: `translate(0%, ${lerp(yStart, yEnd, percentScrolled)}%)`},
-                { duration: 1200, fill: 'forwards' }
+                { duration: 2400, fill: 'forwards' }
             );
             image.style.transform = `translate(0%, ${lerp(yStart, yEnd, percentScrolled)}%)`
         }
-        //console.log('% Of screen scrolled:', percentScrolled);
     }
     
     const ThumbnailOverlay = ({ text }) => (
@@ -49,7 +48,7 @@ function App() {
         <NavBar/>
         <div className='AppBodyContainer'>
             <div className='AppBody'>
-                <SectionBorder borderImage='long'/>
+                <SectionBorder borderImage='long' borderMargin='normal'/>
                 <div className='AboutMe'>
                     <div className='AboutMeText'>
                         <div className='AboutMeTitle'>
@@ -61,7 +60,7 @@ function App() {
                     </div>
                     <img src={SelfPortrait} alt='Connor Espino Portrait' className='AboutMePicture'></img>
                 </div>
-                <SectionBorder borderImage='short'/>
+                <SectionBorder borderImage='short' borderMargin='large'/>
                 <div className='ThumbnailTrack'>
                     <div className='ThumbnailContainer'>
                         <Link to='/WYHAM'>
@@ -84,7 +83,7 @@ function App() {
 
                 </div>
 
-                <SectionBorder borderImage='long'/>
+                <SectionBorder borderImage='long' borderMargin='normal'/>
             </div>
         </div>
         <Footer/>
