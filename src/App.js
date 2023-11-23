@@ -1,10 +1,10 @@
 import './App.css';
 import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 import NavBar from './Components/NavBar'
 import Footer from './Components/Footer'
 import SectionBorder from './Components/SectionBorder';
-import { Link } from 'react-router-dom';
 
 import SelfPortrait from './Media/AboutMePicture.png'
 import WYHAMThumbnail from './Media/WYHAMThumbnail.jpg'
@@ -19,6 +19,7 @@ function App() {
         });
     });
 
+    //TODO: Move lerp to math file
     function lerp(start, end, t) {
         return start + t * (end - start);
     }

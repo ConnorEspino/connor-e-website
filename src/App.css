@@ -16,6 +16,7 @@
   background: rgb(214,237,220);
   background: linear-gradient(0deg, rgba(214,237,220,1) 0%, rgba(147,221,167,1) 30%, rgba(22,107,45,1) 100%);
   width: 70%;
+  padding-top: 60px;
 }
 
 .AboutMe {
@@ -90,7 +91,6 @@
 
 .Thumbnail {
   height: 50vmax; /*Change to vmin for mobile responsiveness*/
-  object-fit: cover;
 }
 
 /* @keyframes App-logo-spin {
