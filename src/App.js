@@ -49,7 +49,7 @@ function App() {
         <NavBar/>
         <div className='AppBodyContainer'>
             <div className='AppBody'>
-                <SectionBorder/>
+                <SectionBorder borderImage='long'/>
                 <div className='AboutMe'>
                     <div className='AboutMeText'>
                         <div className='AboutMeTitle'>
@@ -61,7 +61,7 @@ function App() {
                     </div>
                     <img src={SelfPortrait} alt='Connor Espino Portrait' className='AboutMePicture'></img>
                 </div>
-                
+                <SectionBorder borderImage='short'/>
                 <div className='ThumbnailTrack'>
                     <div className='ThumbnailContainer'>
                         <Link to='/WYHAM'>
@@ -84,7 +84,7 @@ function App() {
 
                 </div>
 
-                <SectionBorder/>
+                <SectionBorder borderImage='long'/>
             </div>
         </div>
         <Footer/>
