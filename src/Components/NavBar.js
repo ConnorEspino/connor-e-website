@@ -6,10 +6,9 @@ import { Link } from 'react-router-dom';
 function NavBar({secondaryText}) {
     useEffect(() => {
         const navBar = document.getElementById('NavBar');
-        const minContainerSize = (document.getElementById('NavBarContainer').getBoundingClientRect().width / window.innerWidth) * 100;
-        shrinkNavBar(navBar, minContainerSize);
+        shrinkNavBar(navBar);
         window.addEventListener('scroll', function() {
-            shrinkNavBar(navBar, minContainerSize);
+            shrinkNavBar(navBar);
         });
     });
     
@@ -17,8 +16,9 @@ function NavBar({secondaryText}) {
         return start + t * (end - start);
     }
     
-    function shrinkNavBar(navBar, minContainerSize) {
+    function shrinkNavBar(navBar) {
         let percentScrolled = Math.min(window.scrollY / 300, 1);
+        const minContainerSize = (document.getElementById('NavBarContainer').getBoundingClientRect().width / window.innerWidth) * 100;
     
         navBar.animate({ 
             width: `${lerp(100, minContainerSize, percentScrolled)}%`},
@@ -34,7 +34,6 @@ function NavBar({secondaryText}) {
             marginLeft: `${lerp(0, 1, percentScrolled)}vw`},
             { duration: 2400, fill: 'forwards' }
         );
-
 
         navBar.style.width = `${lerp(100, minContainerSize, percentScrolled)}%`
         navBar.style.marginTop = `${lerp(0, 1, percentScrolled)}vw`
