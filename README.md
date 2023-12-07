@@ -1,6 +1,6 @@
 # Connor Espino Personal Website Alpha
 
-This is a website to hold all of my different interests and ventures in digital/physical media.
+This is a website to hold all of my different interests and ventures in digital/physical media. This is very much still a work in progress.
 
 ## React Scripts
 
