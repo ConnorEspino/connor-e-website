@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import NavBar from './Components/NavBar'
 import Footer from './Components/Footer'
 import SectionBorder from './Components/SectionBorder';
+import MouseTrail from './Components/MouseTrail';
 
 import SelfPortrait from './Media/AboutMePicture.png'
 import WYHAMThumbnail from './Media/WYHAMThumbnail.jpg'
@@ -46,6 +47,8 @@ function App() {
 
     return (
     <div className='App'>
+        {/*https://codepen.io/falldowngoboone/pen/PwzPYv*/}
+        <MouseTrail/>
         <NavBar/>
         <div className='AppBodyContainer'>
             <div className='AppBody'>
