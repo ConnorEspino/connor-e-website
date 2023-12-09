@@ -14,6 +14,13 @@ import OSEDThumbnail from './Media/OSEDThumbnail.png'
 
 function App() {
     const [mMouseTrailEnabled, setMouseTrailEnabled] = useState(false);
+    
+    const ThumbnailOverlay = ({ text }) => (
+        <div className='ThumbnailOverlay'>
+            {text}
+        </div>
+    );
+
     useEffect(() => {
         movePictures();
         window.addEventListener('scroll', function() {
@@ -39,17 +46,11 @@ function App() {
             image.style.transform = `translate(0%, ${lerp(yStart, yEnd, percentScrolled)}%)`
         }
     }
-    
-    const ThumbnailOverlay = ({ text }) => (
-        <div className='ThumbnailOverlay'>
-          {text}
-        </div>
-      );
 
     return (
     <div className='App'>
         {/*https://codepen.io/falldowngoboone/pen/PwzPYv*/}
-        <MouseTrail/>
+        {mMouseTrailEnabled && (<MouseTrail/>)}
         <NavBar/>
         <div className='AppBodyContainer'>
             <div className='AppBody'>
@@ -65,7 +66,9 @@ function App() {
                     </div>
                     <img src={SelfPortrait} alt='Connor Espino Portrait' className='AboutMePicture'></img>
                 </div>
-                <SectionBorder borderImage='short' borderMargin='large' />
+                <div onClick={() => setMouseTrailEnabled(!mMouseTrailEnabled)}>
+                    <SectionBorder borderImage='short' borderMargin='large'/>
+                </div>
                 <div className='ThumbnailTrack'>
                     <div className='ThumbnailContainer'>
                         <Link to='/WYHAM'>

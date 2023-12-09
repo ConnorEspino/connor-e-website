@@ -5,7 +5,7 @@ import FloatingDiv from './FloatingDiv';
   //set visibility of trail dots based on mouse movement
   // mousepause?
 
-const MouseTrail = ({sampleInterval = 1, maxSamples = 200}) => {
+const MouseTrail = ({sampleInterval = 10, maxSamples = 200}) => {
     const [scope, animate] = useAnimate();
     const kSampleInterval = sampleInterval;
     const kMaxSamples = maxSamples;
