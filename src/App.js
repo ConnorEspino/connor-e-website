@@ -26,6 +26,7 @@ function App() {
         return () => {
             window.removeEventListener('scroll', movePictures)
         };
+        // eslint-disable-next-line
     }, []);
 
     //TODO: Move lerp to math file

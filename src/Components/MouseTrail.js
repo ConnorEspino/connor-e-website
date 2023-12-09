@@ -46,6 +46,7 @@ const MouseTrail = ({sampleInterval = 10, maxSamples = 200}) => {
             window.removeEventListener('mousemove', handleAnimate);
             window.removeEventListener('scroll', handleScroll);
         };
+        // eslint-disable-next-line
     }, []);
 
     return (
