@@ -12,7 +12,7 @@ import EDPThumbnail from './Media/EDPThumbnail.png'
 import OSEDThumbnail from './Media/OSEDThumbnail.png'
 
 function App() {
-    const [mMouseTrailEnabled, setMouseTrailEnabled] = useState(localStorage.getItem('lMouseTrailEnabled') === 'true');
+    const [mMouseTrailEnabled, setMouseTrailEnabled] = useState(localStorage.getItem('lMouseTrailEnabled') !== 'true');
     const ThumbnailOverlay = ({ text }) => (
         <div className='ThumbnailOverlay'>
             {text}
@@ -21,6 +21,7 @@ function App() {
 
     useEffect(() => {
         window.addEventListener('scroll', movePictures);
+        movePictures();
 
         return () => {
             window.removeEventListener('scroll', movePictures)
@@ -47,7 +48,6 @@ function App() {
     }
 
     function toggleTrail() {
-        console.log(mMouseTrailEnabled);
         setMouseTrailEnabled(!mMouseTrailEnabled)
         localStorage.setItem('lMouseTrailEnabled', String(mMouseTrailEnabled));
     }

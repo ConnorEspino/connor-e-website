@@ -28,10 +28,14 @@ const MouseTrail = ({sampleInterval = 10, maxSamples = 200}) => {
     };
 
     const handleScroll = async () => {
-        for (let i = 0; i < kMaxSamples; i++) {
-            animate(`#trailItem${i}`, {opacity: 0}, {duration: 0});
+        try {
+            for (let i = 0; i < kMaxSamples; i++) {
+                animate(`#trailItem${i}`, {opacity: 0}, {duration: 0});
+            }
+            mNextDotIndex = 0;
+        } catch (e) {
+            console.warn(e);
         }
-        mNextDotIndex = 0;
     };
 
     useEffect(() => {

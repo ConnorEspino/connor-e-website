@@ -15,19 +15,19 @@ function OSED() {
                     </div>
                     <div className='Frames'>
                         <div className='FrameContainer'>
-                            <iframe className='VideoFrame' title='2018' src="https://player.vimeo.com/video/382834698" frameborder="0">
+                            <iframe className='VideoFrame' title='2018' src="https://player.vimeo.com/video/382834698" frameBorder="0">
                             </iframe>
                         </div>
                         <div className='FrameContainer'>
-                            <iframe className='VideoFrame' title='2019' src="https://player.vimeo.com/video/383409297" frameborder="0">
+                            <iframe className='VideoFrame' title='2019' src="https://player.vimeo.com/video/383409297" frameBorder="0">
                             </iframe>
                         </div>
                         <div className='FrameContainer'>
-                            <iframe className='VideoFrame' title='2020' src="https://player.vimeo.com/video/541100531" frameborder="0">
+                            <iframe className='VideoFrame' title='2020' src="https://player.vimeo.com/video/541100531" frameBorder="0">
                             </iframe>
                         </div>
                         <div className='FrameContainer'>
-                            <iframe className='VideoFrame' title='2021' src="https://player.vimeo.com/video/661563462" frameborder="0">
+                            <iframe className='VideoFrame' title='2021' src="https://player.vimeo.com/video/661563462" frameBorder="0">
                             </iframe>
                         </div>
                     </div>
