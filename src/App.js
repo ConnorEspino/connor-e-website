@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import NavBar from './Components/NavBar'
@@ -13,6 +13,7 @@ import EDPThumbnail from './Media/EDPThumbnail.png'
 import OSEDThumbnail from './Media/OSEDThumbnail.png'
 
 function App() {
+    const [mMouseTrailEnabled, setMouseTrailEnabled] = useState(false);
     useEffect(() => {
         movePictures();
         window.addEventListener('scroll', function() {
@@ -64,7 +65,7 @@ function App() {
                     </div>
                     <img src={SelfPortrait} alt='Connor Espino Portrait' className='AboutMePicture'></img>
                 </div>
-                <SectionBorder borderImage='short' borderMargin='large'/>
+                <SectionBorder borderImage='short' borderMargin='large' />
                 <div className='ThumbnailTrack'>
                     <div className='ThumbnailContainer'>
                         <Link to='/WYHAM'>

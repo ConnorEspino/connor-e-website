@@ -1,55 +1,55 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
+import { useAnimate } from 'framer-motion';
+import FloatingDiv from './FloatingDiv';
 
-const MouseTrail = () => {
-    var mDots = [];
-    var mMouse = {x: 0, y: 0};
+  //set visibility of trail dots based on mouse movement
+  // mousepause?
 
-// The Dot.prototype.draw() method sets the position of 
-// the object's <div> node
+const MouseTrail = ({sampleInterval = 1, maxSamples = 200}) => {
+    const [scope, animate] = useAnimate();
+    const kSampleInterval = sampleInterval;
+    const kMaxSamples = maxSamples;
+    let mCurrentSample = 0;
+    let mTrailIds = [];
+    let mNextDotIndex = 0;
 
+    for (let i = 0; i < kMaxSamples; i++) {
+        mTrailIds.push('trailItem' + i);
+    }
 
-// Creates the Dot objects, populates the dots array
-for (var i = 0; i < 12; i++) {
-var d = new Dot();
-dots.push(d);
-}
+    const handleAnimate = async (event) => {
+        mCurrentSample--;
+        if (mNextDotIndex !== kMaxSamples && mCurrentSample <= 0) {
+            animate(`#trailItem${mNextDotIndex}`, {x: event.clientX, y: event.clientY, opacity: 1}, {duration: 0});
+            mNextDotIndex++;
+            mCurrentSample = kSampleInterval;
+        }
+        // console.log(mCurrentSample);
+    };
 
-// This is the screen redraw function
-function draw() {
-// Make sure the mouse position is set everytime
-// draw() is called.
-var x = mouse.x,
-  y = mouse.y;
+    const handleScroll = async () => {
+        for (let i = 0; i < kMaxSamples; i++) {
+            animate(`#trailItem${i}`, {opacity: 0}, {duration: 0});
+        }
+        mNextDotIndex = 0;
+    };
 
-// This loop is where all the 90s magic happens
-dots.forEach(function(dot, index, dots) {
-var nextDot = dots[index + 1] || dots[0];
+    useEffect(() => {
+        window.addEventListener('mousemove', handleAnimate);
+        window.addEventListener('scroll', handleScroll);
 
-dot.x = x;
-dot.y = y;
-dot.draw();
-x += (nextDot.x - dot.x) * .6;
-y += (nextDot.y - dot.y) * .6;
+        return () => {
+            window.removeEventListener('mousemove', handleAnimate);
+        };
+    }, []);
 
-});
-}
-
-addEventListener("mousemove", function(event) {
-//event.preventDefault();
-mouse.x = event.pageX;
-mouse.y = event.pageY;
-});
-
-// animate() calls draw() then recursively calls itself
-// everytime the screen repaints via requestAnimationFrame().
-function animate() {
-draw();
-requestAnimationFrame(animate);
-}
-
-// And get it started by calling animate().
-animate();
-
+    return (
+        <div className='cMouseTrail' ref={scope}>
+            {mTrailIds.map((currentId) => {
+                return <FloatingDiv id={currentId} key={currentId}/>
+            })}
+        </div>
+    );
 };
 
 export default MouseTrail;

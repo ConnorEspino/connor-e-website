@@ -9,5 +9,12 @@ Quotations:
     'Single Quotes unless escaped with \"'
 
 Variables:
+    kCamel for constant variables
     mCamel for member variable
     cCamel for css variable
+
+    Variables in any scope should be listed: 
+        const firstConstVar
+        const secondConstVar
+        let firstLetVar
+        let secondLetVar
