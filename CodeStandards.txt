@@ -12,9 +12,18 @@ Variables:
     kCamel for constant variables
     mCamel for member variable
     cCamel for css variable
+    lCamel for localStorage variables
 
     Variables in any scope should be listed: 
         const firstConstVar
         const secondConstVar
         let firstLetVar
         let secondLetVar
+
+If-Else:
+    if () {
+        Code
+    }
+    else {
+        Code
+    }

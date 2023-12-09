@@ -1,6 +1,6 @@
 import './EDP.css'
 
-import NavBar from '../Components/NavBar'
+import TopComponent from '../Components/TopComponent';
 import Footer from '../Components/Footer'
 
 // TODO: Implement LazyFrame for page load
@@ -10,7 +10,7 @@ import Footer from '../Components/Footer'
 function EDP() {
     return (
         <div>
-            <NavBar secondaryText='> EDP'/>
+            <TopComponent navSecondaryText='> EDP'/>
             <iframe title='Next - A No Mans Sky Cinematic' width='420' height='315'
                 src="https://www.youtube.com/embed/Dh4XVB24Dt8">
             </iframe>

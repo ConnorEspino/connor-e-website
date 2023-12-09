@@ -2,10 +2,9 @@ import './App.css';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import NavBar from './Components/NavBar'
 import Footer from './Components/Footer'
 import SectionBorder from './Components/SectionBorder';
-import MouseTrail from './Components/MouseTrail';
+import TopComponent from './Components/TopComponent';
 
 import SelfPortrait from './Media/AboutMePicture.png'
 import WYHAMThumbnail from './Media/WYHAMThumbnail.jpg'
@@ -13,8 +12,7 @@ import EDPThumbnail from './Media/EDPThumbnail.png'
 import OSEDThumbnail from './Media/OSEDThumbnail.png'
 
 function App() {
-    const [mMouseTrailEnabled, setMouseTrailEnabled] = useState(false);
-    
+    const [mMouseTrailEnabled, setMouseTrailEnabled] = useState(localStorage.getItem('lMouseTrailEnabled') === 'true');
     const ThumbnailOverlay = ({ text }) => (
         <div className='ThumbnailOverlay'>
             {text}
@@ -22,11 +20,12 @@ function App() {
     );
 
     useEffect(() => {
-        movePictures();
-        window.addEventListener('scroll', function() {
-            movePictures();
-        });
-    });
+        window.addEventListener('scroll', movePictures);
+
+        return () => {
+            window.removeEventListener('scroll', movePictures)
+        };
+    }, []);
 
     //TODO: Move lerp to math file
     function lerp(start, end, t) {
@@ -47,11 +46,15 @@ function App() {
         }
     }
 
+    function toggleTrail() {
+        console.log(mMouseTrailEnabled);
+        setMouseTrailEnabled(!mMouseTrailEnabled)
+        localStorage.setItem('lMouseTrailEnabled', String(mMouseTrailEnabled));
+    }
+
     return (
     <div className='App'>
-        {/*https://codepen.io/falldowngoboone/pen/PwzPYv*/}
-        {mMouseTrailEnabled && (<MouseTrail/>)}
-        <NavBar/>
+        <TopComponent/>
         <div className='AppBodyContainer'>
             <div className='AppBody'>
                 <SectionBorder borderImage='long' borderMargin='normal'/>
@@ -66,7 +69,7 @@ function App() {
                     </div>
                     <img src={SelfPortrait} alt='Connor Espino Portrait' className='AboutMePicture'></img>
                 </div>
-                <div onClick={() => setMouseTrailEnabled(!mMouseTrailEnabled)}>
+                <div onClick={toggleTrail}>
                     <SectionBorder borderImage='short' borderMargin='large'/>
                 </div>
                 <div className='ThumbnailTrack'>

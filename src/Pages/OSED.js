@@ -1,12 +1,12 @@
 import './OSED.css'
 
-import NavBar from '../Components/NavBar'
+import TopComponent from '../Components/TopComponent';
 import Footer from '../Components/Footer'
 
 function OSED() {
     return (
         <div className='OSED'>
-            <NavBar secondaryText='> OSED'/>
+            <TopComponent navSecondaryText='> OSED'/>
             <div className='OSEDContainer'>
                 <div className='OSEDTitle'> One Second Every Day </div>
                 <div className='TimelineContainer'>

@@ -1,12 +1,12 @@
 import './WYHAM.css'
 
-import NavBar from '../Components/NavBar'
+import TopComponent from '../Components/TopComponent';
 import Footer from '../Components/Footer'
 
 function WYHAM() {
     return (
         <div>
-            <NavBar secondaryText='> WYHAM'/>
+            <TopComponent navSecondaryText='> WYHAM'/>
             WYHAM
             <Footer/>
         </div>
