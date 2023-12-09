@@ -40,6 +40,7 @@ const MouseTrail = ({sampleInterval = 1, maxSamples = 200}) => {
 
         return () => {
             window.removeEventListener('mousemove', handleAnimate);
+            window.removeEventListener('scroll', handleScroll);
         };
     }, []);
 
