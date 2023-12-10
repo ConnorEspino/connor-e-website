@@ -11,8 +11,9 @@ Quotations:
 Variables:
     kCamel for constant variables
     mCamel for member variable
-    cCamel for css variable
     lCamel for localStorage variables
+
+    camelCase for css className
 
     Variables in any scope should be listed: 
         const firstConstVar
