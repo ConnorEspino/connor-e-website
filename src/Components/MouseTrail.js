@@ -5,18 +5,17 @@ import { useAnimate } from 'framer-motion';
 
 import FloatingDiv from './FloatingDiv';
 
-const MouseTrail = ({sampleInterval = 10, maxElements = 200}) => {
+const MouseTrail = ({sampleInterval = 1, maxElements = 100}) => {
     const [scope, animate] = useAnimate();
     const [mTrailIds, setTrailIds] = useState([]);
-    const [mMaxElements, setMaxElements] = useState(maxElements);
+    let mMaxElements = maxElements;
     let mSampleInterval = sampleInterval;
     let mCurrentSample = 0;
     let mNextDotIndex = 0;
 
-    const handleAnimate = async (event) => {
+    const handleAnimate = (event) => {
         mCurrentSample--;
         if (mNextDotIndex < mMaxElements && mCurrentSample <= 0) {
-            console.log(mMaxElements)
             try {
                 animate(`#trailItem${mNextDotIndex}`, {x: event.clientX, y: event.clientY, opacity: 1}, {duration: 0});
             } catch (e) {
@@ -30,36 +29,39 @@ const MouseTrail = ({sampleInterval = 10, maxElements = 200}) => {
         // console.log(mCurrentSample);
     };
 
-    const handleScroll = async () => {
+    const handleScroll = () => {
+        mNextDotIndex = 0;
         try {
-            //mTrailIds is empty even though it's set in changeMaxElements
-            //Could be problem with accesing useState variable in async function
-            console.log(mTrailIds)
-            for (let i = 0; i < mTrailIds.length; i++) {
+            const numElements = document.querySelectorAll('[id^="trailItem"]').length;
+            for (let i = 0; i < numElements; i++) {
                 animate(`#trailItem${i}`, {opacity: 0}, {duration: 0});
             }
-            mNextDotIndex = 0;
         } catch (e) {
             console.warn(e);
         }
     };
 
     const changeMaxElements = (value) => {
-        const currentTrailLength = mTrailIds.length;
-
-        if (value > currentTrailLength) {
-            let newArr = [...mTrailIds];
+        setTrailIds((prevTrailIds) => {
+          const currentTrailLength = prevTrailIds.length;
+      
+          if (value > currentTrailLength) {
+            let newArr = [...prevTrailIds];
             for (let i = currentTrailLength; i < value; i++) {
-                const newKey = 'trailItem' + i;
-                if (!newArr.includes(newKey)) {
-                    newArr.push(newKey);
-                }
+              const newKey = 'trailItem' + i;
+              if (!newArr.includes(newKey)) {
+                newArr.push(newKey);
+              }
             }
-            setTrailIds(newArr);
-        }
+            return newArr;
+          }
+          return prevTrailIds;
+        });
+      
+        mMaxElements = value;
         handleScroll();
-        setMaxElements(value);
-    }
+      };
+      
 
     useEffect(() => {
         window.addEventListener('mousemove', handleAnimate);
@@ -75,7 +77,7 @@ const MouseTrail = ({sampleInterval = 10, maxElements = 200}) => {
 
     return (
         <div className='mouseTrail' ref={scope}>
-            {mTrailIds.map((currentId) => <FloatingDiv key={currentId} id={currentId}/>)}
+            {mTrailIds.map((currentId) => <FloatingDiv key={currentId} id={currentId} content={'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAQAAADZc7J/AAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwAAAACYktHRAD/h4/MvwAAAAlwSFlzAAAAyAAAAMgAY/rnrQAAAAd0SU1FB+cMEwUNEZkcCL4AAAABb3JOVAHPoneaAAAAT0lEQVRIx+3UMQ6AMAwEwfz/04OEoKAkS0HhS32jyHKylhWjEkSCSBAJIkEkiASRIBLP6n3e70Ea4lncH+JVCsC3S/2HhxXv0H+oyWSylQPLo6JeS9zD/gAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAyMy0xMi0xOVQwNToxMzoxNiswMDowMOYG0ewAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMjMtMTItMTlUMDU6MTM6MTYrMDA6MDCXW2lQAAAAKHRFWHRkYXRlOnRpbWVzdGFtcAAyMDIzLTEyLTE5VDA1OjEzOjE3KzAwOjAwZjlDOwAAAABJRU5ErkJggg=='}/>)}
             <div className='mouseTrailValues'>
                 <label>
                     Sample Rate: <input className='mouseTrailInput' name='sampleRate' defaultValue={mSampleInterval} onChange={(e) => {mSampleInterval = e.target.value}}/>
