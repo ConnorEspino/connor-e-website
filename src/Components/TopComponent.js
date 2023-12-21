@@ -6,7 +6,6 @@ const TopComponent = ({navSecondaryText}) => {
 
     return (
         <div className='topComponent'>
-            {/*https://codepen.io/falldowngoboone/pen/PwzPYv*/}
             {kCurrentMTE && (<MouseTrail/>)}
             <NavBar secondaryText={navSecondaryText}/>
         </div>
