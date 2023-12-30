@@ -1,0 +1,9 @@
+.imageContainer {
+    display: grid;
+    padding-top: 50px;
+    grid-template-columns: repeat(auto-fill, 15%);
+}
+
+img {
+    width: 100%;
+}
