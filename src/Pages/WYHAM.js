@@ -19,9 +19,14 @@ function WYHAM() {
         process.env.PUBLIC_URL + '/WYHAM Pictures/2022-02-26-0116.jpg',
         process.env.PUBLIC_URL + '/WYHAM Pictures/2022-02-26-0121.jpg',
     ];
+
+    const navLevels = [
+        'WYHAM'
+    ];
+
     return (
         <div>
-            <TopComponent navSecondaryText='> WYHAM'/>
+            <TopComponent navLevels= {navLevels}/>
             <div className='imageContainer'>
                 {images.map((item, index) => {
                     return (<img src={item}></img>)

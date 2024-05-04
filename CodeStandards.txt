@@ -1,4 +1,5 @@
 Indenting:
+    No tabs
     4 spaces
     2 in .css
 

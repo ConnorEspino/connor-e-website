@@ -8,9 +8,13 @@ import Footer from '../Components/Footer'
 // import LazyFrame from 'lazyframe';
 
 function EDP() {
+    const navLevels = [
+        'EDP'
+    ];
+
     return (
         <div>
-            <TopComponent navSecondaryText='> EDP'/>
+            <TopComponent navLevels= {navLevels}/>
             <iframe title='Next - A No Mans Sky Cinematic' width='420' height='315'
                 src="https://www.youtube.com/embed/Dh4XVB24Dt8">
             </iframe>

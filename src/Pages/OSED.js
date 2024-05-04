@@ -4,9 +4,13 @@ import TopComponent from '../Components/TopComponent';
 import Footer from '../Components/Footer'
 
 function OSED() {
+    const navLevels = [
+        'OSED'
+    ] 
+
     return (
         <div className='OSED'>
-            <TopComponent navSecondaryText='> OSED'/>
+            <TopComponent navLevels= {navLevels}/>
             <div className='OSEDContainer'>
                 <div className='OSEDTitle'> One Second Every Day </div>
                 <div className='TimelineContainer'>

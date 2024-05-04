@@ -3,7 +3,9 @@ import './NavBar.css';
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-function NavBar({secondaryText}) {
+// TODO: Change to type script to force navLevels to be an array of strings
+// TODO: navLevels needs to be a vector of pairs of (titleString, locationString) so that we can automatically turn them into page links 
+function NavBar({navLevels}) {
     useEffect(() => {
         const navBar = document.getElementById('NavBar');
         shrinkNavBar(navBar);
